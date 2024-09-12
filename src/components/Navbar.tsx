@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md transition-colors duration-200 fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-gray-800 dark:text-white">Your Name</Link>
+        <Link href="/" className="text-xl font-bold text-gray-800 dark:text-white">Dennis Zhang</Link>
         <ul className="flex space-x-4 items-center">
           <li><Link href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Projects</Link></li>
           <li><Link href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Skills</Link></li>

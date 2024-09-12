@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import profilePicture from '../../public/images/profile-picture.jpg';
 
 export default function IntroSection() {
   const [isClient, setIsClient] = useState(false);
@@ -9,6 +10,14 @@ export default function IntroSection() {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const handleDownloadCV = () => {
+    // Replace with the actual path to your CV file
+    // const cvUrl = '/path-to-your-cv.pdf';
+    // window.open(cvUrl, '_blank');
+    console.log("Downloading CV");
+  };
+
 
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
@@ -76,27 +85,34 @@ export default function IntroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          A passionate software engineer specializing in web development
+            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                A passionate software engineer specializing in web development. I bring ideas to life in the digital world.
+            </p>
         </motion.p>
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Image
-            src="/profile-picture.jpg"
+            src={profilePicture}
             alt="Profile Picture"
             width={200}
             height={200}
             className="rounded-full mx-auto mb-6"
+            style={{ borderRadius: '50%' }}
+            placeholder="blur"
+            blurDataURL={profilePicture.src}
           />
         </motion.div>
         <motion.button
-          className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition"
+          className="bg-blue-500 text-white px-6 py-2 rounded-full transition-colors duration-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          whileHover={{ scale: 1.05 }}
+        //   need to disable transition for hover and click
+        //   transition={{ duration: 0.8, delay: 0.6 }}
+          whileHover={{ scale: 1.05, backgroundColor: "#3b82f6" }}
           whileTap={{ scale: 0.95 }}
         >
           Download CV
