@@ -1,10 +1,14 @@
 import dynamic from 'next/dynamic';
 import IntroSection from "../components/IntroSection";
 import ProjectsSection from "../components/ProjectsSection";
+import AboutMeSection from "../components/AboutMeSection";
 import SkillsSection from "../components/SkillsSection";
 import ContactSection from "../components/ContactSection";
 
-const AnimatedSection = dynamic(() => import('../components/AnimatedSection'), { ssr: false });
+const AnimatedSection = dynamic(() => import('../components/AnimatedSection'), {
+  ssr: false,
+  loading: ({ children }) => <>{children}</>
+});
 
 export default function Home() {
   return (
@@ -16,10 +20,13 @@ export default function Home() {
         <AnimatedSection initialDelay={0.2}>
           <ProjectsSection />
         </AnimatedSection>
+        <AnimatedSection initialDelay={0.3}>
+          <AboutMeSection />
+        </AnimatedSection>
         <AnimatedSection initialDelay={0.4}>
           <SkillsSection />
         </AnimatedSection>
-        <AnimatedSection initialDelay={0.6}>
+        <AnimatedSection initialDelay={0.5}>
           <ContactSection />
         </AnimatedSection>
       </main>
